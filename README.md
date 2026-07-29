@@ -103,19 +103,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, < 2.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>3.117 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.117.1 |
 
 ## Modules
 
@@ -131,13 +125,13 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | The name of the certificate issuer | `string` | n/a | yes |
-| <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | Id of the key vault to which certificates need to be added. | `string` | n/a | yes |
-| <a name="input_provider_name"></a> [provider\_name](#input\_provider\_name) | The name of the certificate issuer provider.<br>Possible values are: DigiCert, GlobalSign, OneCertV2-PrivateCA, OneCertV2-PublicCA and SslAdminV2 | `string` | n/a | yes |
-| <a name="input_org_id"></a> [org\_id](#input\_org\_id) | The organization id of the certificate issuer | `string` | n/a | yes |
 | <a name="input_account_id"></a> [account\_id](#input\_account\_id) | The account id of the certificate issuer | `string` | n/a | yes |
+| <a name="input_admins"></a> [admins](#input\_admins) | Admin contact information for the certificate issuer | <pre>list(object({<br/>    email_address = string<br/>    first_name    = optional(string)<br/>    last_name     = optional(string)<br/>    phone         = optional(string)<br/>  }))</pre> | `[]` | no |
+| <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | Id of the key vault to which certificates need to be added. | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The name of the certificate issuer | `string` | n/a | yes |
+| <a name="input_org_id"></a> [org\_id](#input\_org\_id) | The organization id of the certificate issuer | `string` | n/a | yes |
 | <a name="input_password"></a> [password](#input\_password) | The password of the certificate issuer account | `string` | n/a | yes |
-| <a name="input_admins"></a> [admins](#input\_admins) | Admin contact information for the certificate issuer | <pre>list(object({<br>    email_address = string<br>    first_name    = optional(string)<br>    last_name     = optional(string)<br>    phone         = optional(string)<br>  }))</pre> | `[]` | no |
+| <a name="input_provider_name"></a> [provider\_name](#input\_provider\_name) | The name of the certificate issuer provider.<br/>Possible values are: DigiCert, GlobalSign, OneCertV2-PrivateCA, OneCertV2-PublicCA and SslAdminV2 | `string` | n/a | yes |
 
 ## Outputs
 
@@ -145,4 +139,4 @@ No modules.
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | The ID of the Key Vault Certificate Issuer |
 | <a name="output_name"></a> [name](#output\_name) | The name of the Key Vault Certificate Issuer |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->

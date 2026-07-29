@@ -24,7 +24,7 @@ provider_name = "DigiCert"
 org_id     = "000000"
 account_id = "12345"
 
-role_assignment_type = "User"
+role_assignment_type = "ServicePrincipal"
 
 admins = [
   {
